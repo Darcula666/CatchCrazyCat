@@ -19,8 +19,8 @@ import java.util.Vector;
  */
 public class PalyGround extends SurfaceView implements View.OnTouchListener {
     private static int WIDTH = 40;
-    private static final int COL = 10;
-    private static final int ROW = 10;
+    private static final int COL = 15;
+    private static final int ROW = 15;
     private static final int BLOCKS = 15;//默认添加的路障数量
 
     private Dot matrix[][];
@@ -94,8 +94,8 @@ public class PalyGround extends SurfaceView implements View.OnTouchListener {
                 matrix[i][j].setStauts(Dot.Status_OFF);
             }
         }
-        cat = new Dot(4, 5);
-        getDot(4, 5).setStauts(Dot.Status_In);
+        cat = new Dot((int)(COL/2)-1, (COL/2));
+        getDot((COL/2)-1,(COL/2)).setStauts(Dot.Status_In);
         for (int i = 0; i < BLOCKS; ) {
             int x = (int) ((Math.random() * 1000) % COL);
             int y = (int) ((Math.random() * 1000) % ROW);
@@ -236,11 +236,11 @@ public class PalyGround extends SurfaceView implements View.OnTouchListener {
     }
 
     private void lose() {//游戏结束
-        Toast.makeText(getContext(), "Lose", Toast.LENGTH_LONG).show();
+        Toast.makeText(getContext(), "Lose", Toast.LENGTH_SHORT).show();
     }
 
     private void win() {
-        Toast.makeText(getContext(), "You Win", Toast.LENGTH_LONG).show();
+        Toast.makeText(getContext(), "You Win", Toast.LENGTH_SHORT).show();
     }
 
     @Override
